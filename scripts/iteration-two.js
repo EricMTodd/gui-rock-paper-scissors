@@ -1,29 +1,37 @@
-let round = 0;
 let computerScore = 0;
 let playerScore = 0;
 let computerChoice;
 let playerChoice;
 
-function selectRock() {
+const rockSelect = document.querySelector("#rock-button");
+rockSelect.onclick = () => {
   playerChoice = "rock";
-  console.log(`playerChoice: ${playerChoice}`);
   getComputerChoice();
-}
+  console.log(`Player chose ${playerChoice}`);
+  console.log(`Computer chose ${computerChoice}`);
+  evaluateChoices();
+};
 
-function selectPaper() {
+const paperSelect = document.querySelector("#paper-button");
+paperSelect.onclick = () => {
   playerChoice = "paper";
-  console.log(`playerChoice: ${playerChoice}`);
   getComputerChoice();
-}
+  console.log(`Player chose ${playerChoice}`);
+  console.log(`Computer chose ${computerChoice}`);
+  evaluateChoices();
+};
 
-function selectScissors() {
+const scissorsSelect = document.querySelector("#scissors-button");
+scissorsSelect.onclick = () => {
   playerChoice = "scissors";
-  console.log(`playerChoice: ${playerChoice}`);
   getComputerChoice();
-}
+  console.log(`Player chose ${playerChoice}`);
+  console.log(`Computer chose ${computerChoice}`);
+  evaluateChoices();
+};
 
 function getComputerChoice() {
-  let computerChoice = Math.floor(Math.random() * 3);
+  computerChoice = Math.floor(Math.random() * 3);
 
   if (computerChoice == 0) {
     computerChoice = "rock";
@@ -33,6 +41,49 @@ function getComputerChoice() {
     computerChoice = "scissors";
   }
 
-  console.log(`computerChoice: ${computerChoice}`);
   return (computerChoice = computerChoice);
+}
+
+function evaluateChoices() {
+  if (playerChoice != computerChoice) {
+    if (playerChoice == "rock" && computerChoice != "paper") {
+      console.log("WIN");
+      playerScore++;
+      console.log(
+        `Computer Score: ${computerScore} | Player score: ${playerScore}`
+      );
+    } else if (playerChoice == "paper" && computerChoice != "scissors") {
+      console.log("WIN");
+      playerScore++;
+      console.log(
+        `Computer Score: ${computerScore} | Player score: ${playerScore}`
+      );
+    } else if (playerChoice == "scissors" && computerChoice != "rock") {
+      console.log("WIN");
+      playerScore++;
+      console.log(
+        `Computer Score: ${computerScore} | Player score: ${playerScore}`
+      );
+    } else {
+      console.log("LOSE");
+      computerScore++;
+      console.log(
+        `Computer Score: ${computerScore} | Player score: ${playerScore}`
+      );
+    }
+  } else {
+    console.log("DRAW");
+    console.log(
+      `Computer Score: ${computerScore} | Player score: ${playerScore}`
+    );
+  }
+
+  gameOver();
+  return;
+}
+
+function gameOver() {
+  if (computerScore > 4 || playerScore > 4) {
+    console.log("GAME OVER");
+  }
 }

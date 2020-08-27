@@ -3,12 +3,13 @@ let playerScore = 0;
 let computerChoice;
 let playerChoice;
 
+// Events
 const rockSelect = document.querySelector("#rock-button");
 rockSelect.onclick = () => {
   playerChoice = "rock";
   getComputerChoice();
-  console.log(`Player chose ${playerChoice}`);
   console.log(`Computer chose ${computerChoice}`);
+  console.log(`Player chose ${playerChoice}`);
   evaluateChoices();
 };
 
@@ -16,8 +17,8 @@ const paperSelect = document.querySelector("#paper-button");
 paperSelect.onclick = () => {
   playerChoice = "paper";
   getComputerChoice();
-  console.log(`Player chose ${playerChoice}`);
   console.log(`Computer chose ${computerChoice}`);
+  console.log(`Player chose ${playerChoice}`);
   evaluateChoices();
 };
 
@@ -25,11 +26,12 @@ const scissorsSelect = document.querySelector("#scissors-button");
 scissorsSelect.onclick = () => {
   playerChoice = "scissors";
   getComputerChoice();
-  console.log(`Player chose ${playerChoice}`);
   console.log(`Computer chose ${computerChoice}`);
+  console.log(`Player chose ${playerChoice}`);
   evaluateChoices();
 };
 
+// Functions
 function getComputerChoice() {
   computerChoice = Math.floor(Math.random() * 3);
 
@@ -49,33 +51,30 @@ function evaluateChoices() {
     if (playerChoice == "rock" && computerChoice != "paper") {
       console.log("WIN");
       playerScore++;
-      console.log(
-        `Computer Score: ${computerScore} | Player score: ${playerScore}`
-      );
+      document.getElementById(
+        "player-score"
+      ).innerHTML = `Player Score: ${playerScore}`;
     } else if (playerChoice == "paper" && computerChoice != "scissors") {
       console.log("WIN");
       playerScore++;
-      console.log(
-        `Computer Score: ${computerScore} | Player score: ${playerScore}`
-      );
+      document.getElementById(
+        "player-score"
+      ).innerHTML = `Player Score: ${playerScore}`;
     } else if (playerChoice == "scissors" && computerChoice != "rock") {
       console.log("WIN");
       playerScore++;
-      console.log(
-        `Computer Score: ${computerScore} | Player score: ${playerScore}`
-      );
+      document.getElementById(
+        "player-score"
+      ).innerHTML = `Player Score: ${playerScore}`;
     } else {
       console.log("LOSE");
       computerScore++;
-      console.log(
-        `Computer Score: ${computerScore} | Player score: ${playerScore}`
-      );
+      document.getElementById(
+        "computer-score"
+      ).innerHTML = `Computer Score: ${computerScore}`;
     }
   } else {
     console.log("DRAW");
-    console.log(
-      `Computer Score: ${computerScore} | Player score: ${playerScore}`
-    );
   }
 
   gameOver();
@@ -85,5 +84,9 @@ function evaluateChoices() {
 function gameOver() {
   if (computerScore > 4 || playerScore > 4) {
     console.log("GAME OVER");
+    computerScore = computerScore;
+    playerScore = playerScore;
   }
 }
+
+// DOM manipulation

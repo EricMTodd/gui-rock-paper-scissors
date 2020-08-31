@@ -2,6 +2,7 @@
 <html>
   <head>
     <title>Rock Paper Scissors</title>
+    <link rel="stylesheet" href="styles/style.css" />
   </head>
   <body>
     <header>
@@ -10,16 +11,23 @@
     <main>
       <div id="scoreboard">
         <span id="computer-score">Computer Score: 0</span>
+        <span> | </span>
         <span id="player-score">Player Score: 0</span>
       </div>
-      <div>
-        <form>
+      <br />
+      <div id="button-container">
+        <form id="gameplay-buttons">
           <button type="button" id="rock-button">Rock</button>
           <button type="button" id="paper-button">Paper</button>
-          <button type="button" id="scissors-button"">Scissors</button>
+          <button type="button" id="scissors-button">Scissors</button>
+        </form>
+        <form id="play-again-button">
+          <button>Play Again?</button>
         </form>
       </div>
-      <div id="information"></div>
+      <div id="information">
+        <p>Info</p>
+      </div>
     </main>
     <footer></footer>
   </body>

@@ -1,3 +1,4 @@
+let round = 0;
 let computerScore = 0;
 let playerScore = 0;
 let computerChoice;
@@ -82,11 +83,13 @@ function evaluateChoices() {
 }
 
 function gameOver() {
+  let gameplayButtons = document.getElementById("gameplay-buttons");
+  let playAgainButton = document.getElementById("play-again-button");
   if (computerScore > 4 || playerScore > 4) {
     console.log("GAME OVER");
-    computerScore = computerScore;
-    playerScore = playerScore;
+    gameplayButtons.style.display = "none";
+    playAgainButton.style.display = "block";
+  } else {
+    round++;
   }
 }
-
-// DOM manipulation

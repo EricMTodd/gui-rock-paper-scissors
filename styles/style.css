@@ -5,6 +5,44 @@ body {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  font-family: sans-serif;
+}
+button {
+  margin: 0 12px 0 12px;
+  padding: 6px 12px;
+  font-size: 16px;
+  border-radius: 10px;
+  background-color: #00bbff;
+  color: white;
+  border: none;
+  box-shadow: 0 5px #999;
+}
+
+button:hover {
+  background-color: #007dab;
+}
+
+button:active {
+  background-color: #007dab;
+  box-shadow: 0 3px #666;
+  transform: translateY(4px);
+}
+
+button:focus {
+  border: none;
+  outline: none;
+}
+
+#scoreboard {
+  margin: 12px 0 0 0;
+}
+
+#button-container {
+  margin: 12px 0 0 0;
+}
+
+#information {
+  margin: 12px 0 0 0;
 }
 
 #play-again-button {

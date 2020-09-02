@@ -96,8 +96,21 @@ function gameOver() {
   let gameplayButtons = document.getElementById("gameplay-buttons");
   let playAgainButton = document.getElementById("play-again-button");
   if (computerScore > 4 || playerScore > 4) {
-    console.log("GAME OVER");
     gameplayButtons.style.display = "none";
-    playAgainButton.style.display = "block";
+    setTimeout(function () {
+      playAgainButton.style.display = "block";
+    }, 2000);
+    if (computerScore === 5) {
+      document.getElementById(
+        "results"
+      ).innerHTML = `Sorry, you lost this game.`;
+    } else if (playerScore === 5) {
+      document.getElementById(
+        "results"
+      ).innerHTML = `Congratulations, you've won the game!`;
+    } else {
+      return;
+    }
   }
+  return;
 }
